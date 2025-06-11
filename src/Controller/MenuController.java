@@ -10,17 +10,17 @@ public class MenuController {
     public void showMenu() {
         boolean running = true;
         while (running) {
-            consoleView.displayMenu();
+            ConsoleView.displayMenu();
             String choice = consoleView.getInput("Choose an option: ");
             switch (choice) {
                 case "1":
                     addContact();
                     break;
                 case "2":
-                    findContact();
+                    findContactByName();
                     break;
                 case "3":
-                    deleteContact();
+                    deleteContactByName();
                     break;
                 case "4":
                     printList();
