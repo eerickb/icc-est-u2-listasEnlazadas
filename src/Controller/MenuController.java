@@ -4,7 +4,7 @@ import Model.Contact;
 import view.ConsoleView;
 
 public class MenuController {
-    private ContactManager<String, String> contactManager = new ContactManager<>();
+    private ContactManager contactManager = new ContactManager();
     private ConsoleView consoleView = new ConsoleView();
 
     public void showMenu() {
@@ -42,20 +42,23 @@ public class MenuController {
 
     private void findContact() {
         String name = consoleView.getInput("Ingrese el nombre de búsqueda: ");
-        Contact<String, String> contact = contactManager.findContactByName(name);
-    
+        Contact<?, ?> contact = contactManager.findContactByName(name);
+
         if (contact != null) {
-            consoleView.showMessage("Contacto encontrado: " + contact.toString());
+            consoleView.showMessage("Contacto encontrado: " + contact);
         } else {
             consoleView.showMessage("Contacto no encontrado.");
         }
     }
-    
 
     private void deleteContact() {
         String name = consoleView.getInput("Ingrese el nombre del contacto a eliminar: ");
-        contactManager.deleteContactByName(name);
-        consoleView.showMessage("Contacto eliminado si existía.");
+        boolean eliminado = contactManager.deleteContactByName(name);
+        if (eliminado) {
+            consoleView.showMessage("Contacto eliminado.");
+        } else {
+            consoleView.showMessage("No se encontró el contacto para eliminar.");
+        }
     }
 
     private void printList() {

@@ -1,18 +1,72 @@
-## Getting Started
+# 📖 Proyecto de Gestión de Contactos en Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## 📌 Información General
 
-## Folder Structure
+- **Título:** Implementación de Lista Enlazada y Contactos
+- **Asignatura:** Estructura de Datos
+- **Carrera:** Computación
+- **Estudiantes:** Erick Bermeo, Alexander Beltran
+- **Fecha:** 11/06/2025
+- **Profesor:** Ing. Pablo Torres
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🛠️ Descripción
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Este proyecto implementa una estructura de datos tipo **Lista Enlazada Genérica** en Java, aplicándola a un gestor de contactos simple en consola. El sistema incluye:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- Clase `Node<T>` para representar nodos.
+- Clase `LinkedList<T>` con operaciones: agregar, buscar, eliminar, imprimir.
+- Clase `Contact<T, U>` para representar contactos con nombre y teléfono.
+- Clase `ContactManager` que gestiona la lista de contactos.
+- Vista en consola (`ConsoleView`) para interacción con el usuario.
+- Controlador (`MenuController`) que coordina vista y lógica.
+- Clase `App.java` como punto de entrada principal.
 
-## Dependency Management
+El objetivo es aplicar conceptos de listas enlazadas genéricas y encapsulamiento, utilizando estructuras dinámicas para resolver un problema real.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+---
+
+## 🚀 Ejecución
+
+### 📦 Requisitos
+
+- Java 8 o superior
+- Editor o IDE como NetBeans, IntelliJ o VS Code
+
+### ▶️ Pasos para compilar y ejecutar
+
+1. **Compila el proyecto:**
+
+```bash
+javac App.java Model/*.java Controller/*.java View/*.java
+```
+
+2. **Ejecuta el programa:**
+
+```bash
+java App
+```
+
+3. **Interacción esperada:**
+
+El menú permite al usuario:
+
+- Agregar contactos (nombre y teléfono)
+- Buscar contacto por nombre
+- Eliminar contacto por nombre
+- Ver la lista completa de contactos
+- Salir del programa
+
+---
+
+## ✅ Conclusiones
+
+- **Erick Bermeo** concluye que este proyecto le permitió comprender cómo aplicar estructuras de datos genéricas en Java, especialmente listas enlazadas. La práctica de separar las capas de modelo, vista y controlador refuerza la importancia de un buen diseño en aplicaciones escalables. Además, el uso de métodos como `equals()` en objetos personalizados como `Contact` demuestra la relevancia de implementar comparaciones lógicas correctamente en programación orientada a objetos.
+
+---
+
+## 🔗 Repositorio
+
+El código fuente puede ser cargado en un repositorio como GitHub para mejor organización.  
+**Repositorio:** https://github.com/eerickb/icc-est-u2-listasEnlazadas.git
