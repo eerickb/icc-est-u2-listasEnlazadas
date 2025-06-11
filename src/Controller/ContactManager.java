@@ -4,17 +4,17 @@ import Model.Contact;
 import Model.LinkedList;
 import Model.Node;
 
-public class ContactManager<T, U> {
-    private LinkedList<Contact<T, U>> contacts = new LinkedList<>();
+public class ContactManager {
+    private final LinkedList<Contact<?, ?>> contacts = new LinkedList<>();
 
-    public void addContact(Contact<T, U> contact) {
+    public void addContact(Contact<?, ?> contact) {
         contacts.appendToTail(contact);
     }
 
-    public Contact<T, U> findContactByName(String name) {
-        Node<Contact<T, U>> current = contacts.getHead();
+    public Contact<?, ?> findContactByName(String name) {
+        Node<Contact<?, ?>> current = contacts.getHead();
         while (current != null) {
-            if (name != null && name.equals(current.getValue().getName())) {
+            if (current.getValue().getName().equals(name)) {
                 return current.getValue();
             }
             current = current.getNext();
@@ -22,18 +22,24 @@ public class ContactManager<T, U> {
         return null;
     }
 
-    public void deleteContactByName(String name) {
-        Node<Contact<T, U>> current = contacts.getHead();
+    public boolean deleteContactByName(String name) {
+        Node<Contact<?, ?>> current = contacts.getHead();
         while (current != null) {
-            if (name != null && name.equals(current.getValue().getName())) {
-                contacts.deleteByValue(current.getValue());
-                break;
+            Contact<?, ?> contact = current.getValue();
+            if (contact.getName().equals(name)) {
+                contacts.deleteByValue(contact);
+                return true;
             }
             current = current.getNext();
         }
+        return false;
     }
 
     public void printList() {
         contacts.print();
+    }
+
+    public LinkedList<Contact<?, ?>> getContacts() {
+        return contacts;
     }
 }
